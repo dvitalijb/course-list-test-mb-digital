@@ -10,7 +10,7 @@ interface Props {
 
 const CourseCard: React.FC<Props> = ({ course, purchased, onBuy, onPlay }) => {
   return (
-    <div style={{ border: "1px solid #ccc", padding: 15, borderRadius: 8 }}>
+    <div className="course-card">
       <h3>{course.title}</h3>
       <p>{course.description}</p>
       <p><b>Price:</b> ${course.price}</p>
