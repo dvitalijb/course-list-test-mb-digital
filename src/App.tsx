@@ -1,19 +1,30 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "./store";
-import { logout } from "./features/authSlice";
 import AuthForm from "./components/AuthForm";
+import { logout } from "./features/authSlice";
+import { useDispatch } from "react-redux";
+import CourseList from "./components/CourseList";
+import VideoPlayer from "./components/VideoPlayer";
 
 function App() {
   const user = useSelector((state: RootState) => state.auth.user);
+  const video = useSelector((state: RootState) => state.video.currentVideo);
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div style={{ padding: 20 }}>
       {user ? (
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
-          <h2>Вітаю, {user.email}</h2>
-          <button onClick={() => dispatch(logout())}>Вийти</button>
-        </div>
+        <>
+          <div style={{ textAlign: "right" }}>
+            <span>Вітаю, {user.email}</span>
+            <button style={{ marginLeft: 10 }} onClick={() => dispatch(logout())}>
+              Вийти
+            </button>
+          </div>
+          <h2>Список курсів</h2>
+          <CourseList />
+          {video && <VideoPlayer />}
+        </>
       ) : (
         <AuthForm />
       )}
