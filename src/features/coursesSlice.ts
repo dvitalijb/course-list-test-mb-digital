@@ -1,5 +1,7 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { Course, fetchCourses, handlePurchase } from "../api/courses";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { fetchCourses, handlePurchase } from "../api/courses";
+import type { Course }from "../api/courses";
 
 interface CoursesState {
   list: Course[];

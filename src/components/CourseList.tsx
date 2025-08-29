@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "../store";
+import type { RootState, AppDispatch } from "../store";
 import { loadCourses, purchaseCourse } from "../features/coursesSlice";
 import CourseCard from "./CourseCard";
 import { playVideo } from "../features/videoSlice";

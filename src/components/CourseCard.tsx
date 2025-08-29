@@ -1,5 +1,5 @@
 import React from "react";
-import { Course } from "../api/courses";
+import type { Course } from "../api/courses";
 
 interface Props {
   course: Course;

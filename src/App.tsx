@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { RootState } from "./store";
+import type { RootState } from "./store";
 import AuthForm from "./components/AuthForm";
 import { logout } from "./features/authSlice";
 import { useDispatch } from "react-redux";
