@@ -27,7 +27,7 @@ export const purchaseCourse = createAsyncThunk(
   "courses/purchase",
   async (courseId: number, { rejectWithValue }) => {
     try {
-      await handlePurchase(courseId);
+      await handlePurchase();
       return courseId;
     } catch (err) {
       return rejectWithValue("Payment failed");
