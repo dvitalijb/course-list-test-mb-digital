@@ -28,7 +28,7 @@ export interface Course {
       setTimeout(() => resolve(mockCourses), 800);
     });
   
-  export const handlePurchase = (courseId: number) =>
+  export const handlePurchase = () =>
     new Promise<string>((resolve, reject) => {
       setTimeout(() => {
         Math.random() > 0.2
