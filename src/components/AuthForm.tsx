@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { login } from "../features/authSlice";
 import type { AppDispatch } from "../store";
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/;
+const EMAILREGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PASSWORDREGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/;
 
 const AuthForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -15,13 +15,13 @@ const AuthForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!emailRegex.test(email)) {
-      setError("Невірний формат email");
+    if (!EMAILREGEX.test(email)) {
+      setError("Wrong email");
       return;
     }
 
-    if (!passwordRegex.test(password)) {
-      setError("Пароль має бути мін. 6 символів, 1 велика, 1 мала літера, 1 спецсимвол");
+    if (!PASSWORDREGEX.test(password)) {
+      setError("Password must be at least 6 characters, 1 uppercase letter, 1 lowercase letter, 1 special character");
       return;
     }
 
@@ -30,24 +30,24 @@ const AuthForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: 300, margin: "20px auto" }}>
+    <form className="form" onSubmit={handleSubmit}>
       <h2>Login / Register</h2>
       <input
+        className="field"
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        style={{ display: "block", marginBottom: 10, width: "100%" }}
       />
       <input
+        className="field"
         type="password"
-        placeholder="Пароль"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        style={{ display: "block", marginBottom: 10, width: "100%" }}
       />
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <button type="submit" style={{ width: "100%", padding: "8px" }}>Увійти</button>
+      {error && <p className="error">{error}</p>}
+      <button type="submit">Log in</button>
     </form>
   );
 };

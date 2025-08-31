@@ -17,12 +17,12 @@ const initialState: CoursesState = {
   error: null,
 };
 
-// завантаження курсів
+// courses loading
 export const loadCourses = createAsyncThunk("courses/load", async () => {
   return await fetchCourses();
 });
 
-// купівля курсу
+// purchase of a course
 export const purchaseCourse = createAsyncThunk(
   "courses/purchase",
   async (courseId: number, { rejectWithValue }) => {

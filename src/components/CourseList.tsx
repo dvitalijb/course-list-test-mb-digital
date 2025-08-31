@@ -11,13 +11,13 @@ const CourseList: React.FC = () => {
 
   useEffect(() => {
     dispatch(loadCourses());
-  }, [dispatch]);
+  }, []);
 
-  if (loading) return <p>Loading courses...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
+  if (loading) return <p className="text-loading">Loading courses...</p>;
+  if (error) return <p className="text-loading error">{error}</p>;
 
   return (
-    <div style={{ display: "grid", gap: 15, gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))" }}>
+    <div className="list">
       {list.map((course) => (
         <CourseCard
           key={course.id}

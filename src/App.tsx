@@ -12,16 +12,16 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="app">
       {user ? (
         <>
-          <div style={{ textAlign: "right" }}>
-            <span>Вітаю, {user.email}</span>
-            <button style={{ marginLeft: 10 }} onClick={() => dispatch(logout())}>
-              Вийти
+          <div className="greeting">
+            <span>Hello, {user.email}</span>
+            <button className="greeting-button" onClick={() => dispatch(logout())}>
+              Log Out
             </button>
           </div>
-          <h2>Список курсів</h2>
+          <h2 className="header-list">List of courses</h2>
           <CourseList />
           {video && <VideoPlayer />}
         </>
