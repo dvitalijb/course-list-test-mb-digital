@@ -16,6 +16,20 @@ export interface Course {
     },
     {
       id: 2,
+      title: "TypeScript Basic",
+      description: "Master TS with real examples",
+      videoUrl: "https://www.w3schools.com/html/movie.mp4",
+      price: 120,
+    },
+    {
+      id: 3,
+      title: "React Advanced",
+      description: "Learn React step by step",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+      price: 100,
+    },
+    {
+      id: 4,
       title: "TypeScript Advanced",
       description: "Master TS with real examples",
       videoUrl: "https://www.w3schools.com/html/movie.mp4",
